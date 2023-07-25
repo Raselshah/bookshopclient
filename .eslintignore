@@ -1,0 +1,4 @@
+vite.config.ts
+tsconfig.node.json
+.eslintrc.cjs
+tailwind.config.js
