@@ -1,10 +1,12 @@
-import { useUpdateBookMutation } from "@/redux/feature/books/booksSlice";
+import { useSingleBookQuery, useUpdateBookMutation } from "@/redux/feature/books/booksSlice";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 
-export default function UpdateBook({setOpen, data}: any) {
-
-    const [updateBook, { isLoading, isError, isSuccess }] =
+export default function UpdateBook() {
+  const {id} = useParams();
+  const { data } = useSingleBookQuery(id);
+    const [updateBook, {  isSuccess }] =
     useUpdateBookMutation();
 
     const [postData, setPostData] = useState({
@@ -33,7 +35,7 @@ if(isSuccess){
 }
   return (
     <div>
-         <button onClick={() => setOpen(false)} className="absolute right-[40px] top-[100px]">X</button>
+      
         <form onSubmit={handleSubmit} className="flex gap-y-[12px] flex-col mx-auto max-w-[343px] justify-center items-center h-screen">
      <input defaultValue={data?.title} onChange={(e) => setPostData(prev => ({ ...prev, title: e.target.value }))}
 type="text" placeholder="Title" className="input input-bordered input-accent w-full max-w-xs" />

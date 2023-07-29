@@ -19,12 +19,12 @@ interface IFormInputs {
 const RegistrationNew = () => {
 
     // const { register, handleSubmit } = useForm<IFormInputs>()
-    const [createUserWithEmailAndPassword, user, loading, error] =
+    const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth);
     const [signInWithEmailAndPassword, userLogin] =
     useSignInWithEmailAndPassword(auth);
 
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [updateProfile] = useUpdateProfile(auth);
   
     const {
         register,
@@ -43,7 +43,7 @@ const RegistrationNew = () => {
       };
 
     
-      console.log("userLogin",userLogin)
+ 
 
    
 

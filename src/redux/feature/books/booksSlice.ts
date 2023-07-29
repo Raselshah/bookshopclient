@@ -42,10 +42,6 @@ const booksApi = api.injectEndpoints({
 
       invalidatesTags: ["book"],
     }),
-    // getComment: builder.query({
-    //   query: (id) => `/comment/${id}`,
-    //   providesTags: ["comments"],
-    // }),
   }),
 });
 

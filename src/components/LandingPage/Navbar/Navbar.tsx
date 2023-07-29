@@ -1,19 +1,22 @@
 import { signOut } from "firebase/auth";
-import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 export default function Navbar() {
-  const [open, setOpen] = useState<boolean>(false);
-  const [user, loading, error] = useAuthState(auth);
+ 
+  const [user, loading] = useAuthState(auth);
 
-  // const navigate = useNavigate()
 
+const navigate = useNavigate()
   const handleSignOut = async ()  => {
    await signOut(auth);
   }
-  const handleLogin = () => {
-    // navigate("/register");
+
+  const handleLogin =  () => {
+    // router.push("/register");
+    navigate("/register");
+
   }
 
   if(loading){

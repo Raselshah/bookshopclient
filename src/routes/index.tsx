@@ -1,5 +1,6 @@
 
 import AddBookForm from "@/components/AddBook/AddBookForm";
+import UpdateBook from "@/components/AddBook/UpdateBook";
 import DetaiilsBook from "@/components/Details/DetaiilsBook";
 import RegistrationNew from "@/components/Ragistration/RegistrationNew";
 import { createBrowserRouter } from "react-router-dom";
@@ -27,6 +28,15 @@ const routes = createBrowserRouter([
         element:(
           <PrivateRoute>
              <AddBookForm />
+          </PrivateRoute>
+        )
+      
+      },
+      {
+        path: `/update-book/:id`,
+        element:(
+          <PrivateRoute>
+             <UpdateBook />
           </PrivateRoute>
         )
       

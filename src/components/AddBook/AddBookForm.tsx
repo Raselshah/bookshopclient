@@ -2,7 +2,7 @@ import { usePostBookMutation } from "@/redux/feature/books/booksSlice";
 import { useState } from "react";
 
 export default function AddBookForm() {
-    const [postBook, { isLoading, isError, isSuccess }] =
+    const [postBook, { isSuccess }] =
     usePostBookMutation();
 
     const [postData, setPostData] = useState({

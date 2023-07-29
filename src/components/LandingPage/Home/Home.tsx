@@ -1,6 +1,7 @@
 import { useGetBookQuery } from "@/redux/feature/books/booksSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import Banner from "./Banner";
 
 type IBook = {
@@ -21,15 +22,16 @@ export default function Home() {
    
       const [search, setSearch] = useState<string>("")
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const { data, isLoading, error } = useGetBookQuery(search);
+      const { data, isLoading } = useGetBookQuery(search);
       
       if(isLoading) {
         return <p>Loading...</p>
       }
 
-     
+
   return (
     <>
+      <Navbar />
     <Banner/>
     <div className="flex justify-start items-center gap-x-[20px] xl:max-w-[1100px] md:max-w-[736px] max-w-[343px] mx-auto mb-[20px]">
       <div className="w-[200px] flex justify-center items-center bg-bg-secondary h-[48px] rounded-full">
